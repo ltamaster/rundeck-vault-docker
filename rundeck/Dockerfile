@@ -1,4 +1,4 @@
-FROM rundeck/rundeck:SNAPSHOT
+FROM rundeckpro/enterprise:SNAPSHOT
 
 USER root
 
@@ -26,9 +26,9 @@ ENV USERNAME=rundeck \
 WORKDIR $HOME
 USER rundeck
 
-COPY --chown=rundeck:rundeck remco /etc/remco
+COPY --chown=rundeck:root remco /etc/remco
 
-RUN wget https://github.com/rundeck-plugins/vault-storage/releases/download/1.1.0/vault-storage-1.1.0.jar -P ./libext
+RUN wget https://github.com/rundeck-plugins/vault-storage/releases/download/1.3.0/vault-storage-1.3.0.jar -P ./libext
 #COPY /home/rundeck/vault-storage-1.1.0.jar ./libext
 
 VOLUME ["/home/rundeck/server/data"]
